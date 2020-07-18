@@ -1,0 +1,22 @@
+@import "./variables";
+@import "./list";
+@import "./title";
+@import "./buttons";
+@import "./fonts";
+
+.container {
+  max-width: 960px;
+  width: 100%;
+}
+
+html {
+  font-size: $font-main-sz;
+  font-family: "Roboto-Regular";
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto-Regular";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

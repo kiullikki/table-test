@@ -1,0 +1,42 @@
+@import "./colors";
+
+.btn {
+  padding: 5px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Roboto-Regular";
+  font-size: 1.0666666666666667rem;
+  color: $auxiliaryPrimary;
+  background-color: $accentPrimary;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    filter: brightness(1.2);
+  }
+
+  &:active {
+    filter: brightness(0.8);
+  }
+
+  &--transparent {
+    height: 30px;
+    font-size: 0.8rem;
+    color: $third;
+    text-transform: capitalize;
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+      color: $primary;
+    }
+  }
+
+}

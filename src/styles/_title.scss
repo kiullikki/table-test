@@ -1,0 +1,10 @@
+@import "./colors";
+
+.title {
+  position: relative;
+  margin: 0;
+  padding-left: 15px;
+  font-family: "Roboto-Bold";
+  font-size: 1.3333333333333333rem;
+  color: $primary;
+}

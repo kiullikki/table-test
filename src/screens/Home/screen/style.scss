@@ -1,0 +1,28 @@
+@import "../../../styles/colors";
+
+.home {
+  padding: 0 10px;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__name {
+    width: 100%;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 25px;
+  }
+
+  &__form {
+    margin-bottom: 40px;
+  }
+
+  &__table {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+}

@@ -1,0 +1,7 @@
+$font-main-sz: 15px;
+
+@mixin media-sm {
+  @media (max-width: 720px) {
+    @content;
+  }
+}
