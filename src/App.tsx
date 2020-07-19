@@ -1,13 +1,10 @@
 import React from "react";
-import { HomePage } from "./screens";
+import { withRouter } from "react-router-dom";
+import { routes } from "./router";
 import "./App.scss";
 
 function App() {
-  return (
-    <div className="app">
-      <HomePage />
-    </div>
-  );
+  return <div className="app">{routes}</div>;
 }
 
-export default App;
+export default withRouter(App);

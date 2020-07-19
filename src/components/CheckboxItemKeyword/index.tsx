@@ -1,6 +1,6 @@
 import React, { ReactElement, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { CheckboxView } from "./view";
+import { Checkbox } from "../Checkbox";
 import { selectKeywordChecked, checkKeyword } from "../../store";
 import { IStore } from "../../store/types";
 
@@ -8,7 +8,7 @@ type IProps = {
   id: string;
 };
 
-export const CheckboxController = (props: IProps): ReactElement => {
+export const CheckboxItemKeyword = (props: IProps): ReactElement => {
   const { id } = props;
   const dispatch = useDispatch();
   const checked = useSelector((store: IStore) =>
@@ -19,5 +19,5 @@ export const CheckboxController = (props: IProps): ReactElement => {
     dispatch,
   ]);
 
-  return <CheckboxView id={id} checked={checked} handleChange={handleChange} />;
+  return <Checkbox id={id} checked={checked} handleChange={handleChange} />;
 };

@@ -17,12 +17,13 @@ import "./style.scss";
 
 interface IProps {
   keywordsList: string[];
+  openModal: (id: string) => void;
 }
 
 export const KeywordsTableController = (props: IProps) => {
-  const { keywordsList } = props;
+  const { keywordsList, openModal } = props;
 
-  const columns = React.useMemo(
+  const columns = useMemo(
     () =>
       COLUMNS.map((columnName: COLUMNS_TYPES) => ({
         Header: COLUMNS_WITHOUT_TITLE.has(columnName)
@@ -107,6 +108,7 @@ export const KeywordsTableController = (props: IProps) => {
       headerGroups={headerGroups}
       rows={rows}
       prepareRow={prepareRow}
+      openModal={openModal}
     />
   );
 };

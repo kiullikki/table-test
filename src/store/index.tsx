@@ -4,6 +4,7 @@ export {
   selectKeywordsList,
   selectKeywordInfo,
   selectKeywordChecked,
+  selectCheckAll,
 } from "./selectors";
 export {
   fetchKeywords,
@@ -12,4 +13,5 @@ export {
   errorKeywords,
   checkKeyword,
   deleteKeyword,
+  checkAllKeywords,
 } from "./actions";

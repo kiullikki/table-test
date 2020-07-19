@@ -4,15 +4,16 @@ import "./style.scss";
 
 interface IProps {
   keywordsList: string[];
+  openModal: (id: string) => void;
 }
 
 export const HomePageView = (props: IProps) => {
-  const { keywordsList } = props;
+  const { keywordsList, openModal } = props;
 
   return (
     <main className="home">
       <div className="container">
-        <KeywordsTable keywordsList={keywordsList} />
+        <KeywordsTable keywordsList={keywordsList} openModal={openModal} />
       </div>
     </main>
   );
