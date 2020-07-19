@@ -1,6 +1,7 @@
 import { actionCreators } from "./actions";
+import { IKeywordsParsed } from "../interfaces";
 
-export interface IAppStore {
+export interface IAppStore extends IKeywordsParsed {
   isLoading: boolean;
   isError: boolean;
 }

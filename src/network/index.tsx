@@ -1,0 +1,1 @@
+export { fetchKeywordsNetwork } from './adapter';

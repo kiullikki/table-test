@@ -1,0 +1,75 @@
+@import "../../styles//colors";
+
+.table {
+  margin: 0 auto;
+  border-collapse: collapse;
+
+  &__header {
+    background-color: $accentThird;
+  }
+
+  th {
+    height: 40px;
+
+    &:nth-child(2) {
+      text-align: left;
+    }
+  }
+
+  td {
+    height: 50px;
+    border-bottom: 1px solid $accentThird;
+  }
+
+  &__checkbox {
+    width: 6%;
+  }
+
+  &__explore,
+  &__show {
+    width: 15%;
+  }
+
+  &__text {
+    text-align: center;
+    width: 15%;
+  }
+
+  &__plus-delta {
+    color: $accentSecondary;
+  }
+
+  &__minus-delta {
+    color: $accentPrimary;
+  }
+
+  &__color {
+    padding: 0;
+    width: 40px;
+    height: 30px;
+
+    &--red {
+      background-color: $accentPrimary;
+    }
+
+    &--blue {
+      background-color: $blue;
+    }
+
+    &--green {
+      background-color: $accentSecondary;
+    }
+
+    &--violet {
+      background-color: $violet;
+    }
+
+    &--yellow {
+      background-color: $yellow;
+    }
+
+    &--gray {
+      background-color: $third;
+    }
+  }
+}
