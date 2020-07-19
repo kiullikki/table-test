@@ -1,3 +1,11 @@
 import { IStore } from "./types";
+import { IKeywordsInfo } from "../interfaces";
 
-export const select = (store: IStore): boolean => store.app.isLoading;
+export const selectKeywordsList = (store: IStore): string[] =>
+  store.app.keywordsList;
+
+export const selectKeywordInfo = (store: IStore): IKeywordsInfo =>
+  store.app.keywordsInfo;
+
+export const selectKeywordChecked = (store: IStore, id: string): boolean =>
+  store.app.keywordsInfo[id].checked;

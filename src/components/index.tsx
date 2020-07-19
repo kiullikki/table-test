@@ -1,1 +1,1 @@
-export { Arrow } from "./svg";
+export { KeywordsTable } from "./KeywordsTable";

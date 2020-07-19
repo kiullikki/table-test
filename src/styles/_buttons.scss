@@ -1,18 +1,17 @@
 @import "./colors";
 
-.btn {
-  padding: 5px;
-  height: 40px;
+.button {
+  padding: 5px 10px;
+  height: 30px;
+  width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
 
   font-family: "Roboto-Regular";
-  font-size: 1.0666666666666667rem;
-  color: $auxiliaryPrimary;
-  background-color: $accentPrimary;
-  text-transform: uppercase;
-  border-radius: 5px;
+  font-size: 1rem;
+  color: $primary;
+  background-color: $accentThird;
   border: none;
   outline: none;
   cursor: pointer;
@@ -22,8 +21,27 @@
     filter: brightness(1.2);
   }
 
+  &:hover {
+    svg {
+      fill: $accentThird;
+    }
+  }
+
   &:active {
     filter: brightness(0.8);
+    svg {
+      fill: $primary;
+    }
+  }
+
+  &:disabled {
+    cursor: auto;
+    filter: none;
+    opacity: 0.4;
+  }
+
+  svg {
+    fill: $third;
   }
 
   &--transparent {
@@ -38,5 +56,4 @@
       color: $primary;
     }
   }
-
 }
