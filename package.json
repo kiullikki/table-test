@@ -11,13 +11,16 @@
     "@types/react": "^16.9.42",
     "@types/react-dom": "^16.9.8",
     "axios": "^0.19.2",
+    "install": "^0.13.0",
     "moment": "^2.27.0",
     "node-sass": "^4.14.1",
+    "npm": "^6.14.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-table": "^7.3.0",
     "redux": "^4.0.5",
     "redux-saga": "^1.1.3",
     "typescript": "^3.7.5"
@@ -45,7 +48,11 @@
   },
   "devDependencies": {
     "@types/react-redux": "^7.1.9",
+<<<<<<< HEAD
     "@types/react-router-dom": "^5.1.5",
+=======
+    "@types/react-table": "^7.0.19",
+>>>>>>> 2be143f2fb8833b3831d6580a643a9cd9650d717
     "redux-devtools-extension": "^2.13.8"
   }
 }

@@ -1,15 +1,18 @@
 import React from "react";
-import { DICTIONARY } from "./constants";
+import { KeywordsTable } from "../../../components";
 import "./style.scss";
 
-interface IProps {}
+interface IProps {
+  keywordsList: string[];
+}
 
 export const HomePageView = (props: IProps) => {
+  const { keywordsList } = props;
 
   return (
     <main className="home">
       <div className="container">
-        <h1>{DICTIONARY.COLOR}</h1>
+        <KeywordsTable keywordsList={keywordsList} />
       </div>
     </main>
   );
