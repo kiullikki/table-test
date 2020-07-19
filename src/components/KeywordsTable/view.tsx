@@ -1,11 +1,14 @@
 import React, { ReactElement } from "react";
-import { HeaderGroup, Row, CellValue } from "react-table";
-import "./style.scss";
-import { TYPE_NODE } from "./constants";
-import { Checkbox } from "../Checkbox";
+import { HeaderGroup, Row, CellValue, Column } from "react-table";
+
+import { TYPE_NODE, COLUMNS_TYPES } from "./constants";
+import { CheckboxItemKeyword } from "../CheckboxItemKeyword";
+import { CheckboxSelectGroup } from "../CheckboxSelectGroup";
 import { ExploreButton } from "../ExploreButton";
 import { ShowButton } from "../ShowButton";
 import { DeleteButton } from "../DeleteButton";
+
+import "./style.scss";
 
 interface IProps {
   getTableProps: (props?: any) => void;
@@ -13,17 +16,27 @@ interface IProps {
   headerGroups: HeaderGroup[];
   rows: Row[];
   prepareRow: (props: Row) => void;
+  openModal: (id: string) => void;
 }
 
-const getCell = (cell: CellValue): ReactElement => {
+const getCell = (
+  cell: CellValue,
+  openModal: (id: string) => void
+): ReactElement => {
   switch (cell.type) {
     case TYPE_NODE.CHECKBOX:
-      return <Checkbox id={String(cell.content)} />;
+      return <CheckboxItemKeyword id={String(cell.content)} />;
 
     case TYPE_NODE.EXPLORE_BUTTON:
       return <ExploreButton keyword={String(cell.content)} />;
     case TYPE_NODE.SHOW_BUTTON:
-      return <ShowButton id={cell.id} count={cell.content} />;
+      return (
+        <ShowButton
+          id={cell.id}
+          count={cell.content}
+          clickHandler={openModal}
+        />
+      );
     case TYPE_NODE.RANK:
       return (
         <p>
@@ -49,6 +62,14 @@ const getCell = (cell: CellValue): ReactElement => {
   }
 };
 
+const getHeader = (column: Column): ReactElement => {
+  return column.id === COLUMNS_TYPES.CONTROL_SELECT ? (
+    <CheckboxSelectGroup />
+  ) : (
+    <span>{column.Header}</span>
+  );
+};
+
 export const KeywordsTableView = (props: IProps) => {
   const {
     getTableProps,
@@ -56,6 +77,7 @@ export const KeywordsTableView = (props: IProps) => {
     headerGroups,
     rows,
     prepareRow,
+    openModal,
   } = props;
 
   return (
@@ -64,7 +86,7 @@ export const KeywordsTableView = (props: IProps) => {
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()} className="table__header">
             {headerGroup.headers.map((column) => (
-              <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+              <th {...column.getHeaderProps()}>{getHeader(column)}</th>
             ))}
           </tr>
         ))}
@@ -80,7 +102,7 @@ export const KeywordsTableView = (props: IProps) => {
                     {...cell.getCellProps()}
                     className={`table__${cell.value.type}`}
                   >
-                    {getCell(cell.value)}
+                    {getCell(cell.value, openModal)}
                   </td>
                 );
               })}

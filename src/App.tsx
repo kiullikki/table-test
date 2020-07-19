@@ -1,16 +1,10 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import { Routes } from "./router";
+import { withRouter } from "react-router-dom";
+import { routes } from "./router";
 import "./App.scss";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <div className="app">
-        <Routes />
-      </div>
-    </BrowserRouter>
-  );
+  return <div className="app">{routes}</div>;
 }
 
-export default App;
+export default withRouter(App);

@@ -48,11 +48,8 @@
   },
   "devDependencies": {
     "@types/react-redux": "^7.1.9",
-<<<<<<< HEAD
     "@types/react-router-dom": "^5.1.5",
-=======
     "@types/react-table": "^7.0.19",
->>>>>>> 2be143f2fb8833b3831d6580a643a9cd9650d717
     "redux-devtools-extension": "^2.13.8"
   }
 }

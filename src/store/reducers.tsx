@@ -40,6 +40,27 @@ export const appReducer = (
         isLoading: false,
       };
     }
+    case ACTIONS_TYPES.CHECK_ALL_KEYWORDS: {
+      const newKeywordsInfo = Object.keys(state.keywordsInfo).reduce(
+        (acc, item) => {
+          const itemKeyword = state.keywordsInfo[item];
+          return {
+            ...acc,
+            [item]: {
+              ...itemKeyword,
+              checked: true,
+            },
+          };
+        },
+        {}
+      );
+
+      return {
+        ...state,
+        checkedKeywords: [...state.keywordsList],
+        keywordsInfo: newKeywordsInfo,
+      };
+    }
     case ACTIONS_TYPES.DELETE_KEYWORD: {
       const { payload } = action;
       const checkedList = filteredArray(state.checkedKeywords, payload);

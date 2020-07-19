@@ -7,6 +7,7 @@ export enum ACTIONS_TYPES {
   FETCH_KEYWORDS_ERROR = "FETCH_KEYWORDS_ERROR",
   TOGGLE_CHECK_KEYWORD = "TOGGLE_CHECK_KEYWORD",
   DELETE_KEYWORD = "DELETE_KEYWORD",
+  CHECK_ALL_KEYWORDS = "CHECK_ALL_KEYWORDS",
 }
 
 function literalType<T extends ACTIONS_TYPES>(actionName: T): T {
@@ -40,6 +41,10 @@ export const errorKeywords = () => ({
   type: literalType(ACTIONS_TYPES.FETCH_KEYWORDS_ERROR),
 });
 
+export const checkAllKeywords = () => ({
+  type: literalType(ACTIONS_TYPES.CHECK_ALL_KEYWORDS),
+});
+
 export const actionCreators = {
   fetchKeywords,
   doneKeywords,
@@ -47,4 +52,5 @@ export const actionCreators = {
   errorKeywords,
   checkKeyword,
   deleteKeyword,
+  checkAllKeywords,
 };

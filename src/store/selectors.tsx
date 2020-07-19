@@ -9,3 +9,6 @@ export const selectKeywordInfo = (store: IStore): IKeywordsInfo =>
 
 export const selectKeywordChecked = (store: IStore, id: string): boolean =>
   store.app.keywordsInfo[id].checked;
+
+export const selectCheckAll = (store: IStore): boolean =>
+  store.app.keywordsList.length === store.app.checkedKeywords.length;

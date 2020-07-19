@@ -10,6 +10,7 @@ export const URLS = {
 };
 
 export enum ROUTES_PATHES {
-  HOME = "",
+  HOME = "/",
   STATS = "/stats",
+  STATS_ITEM = "/stats/:keyword",
 }
