@@ -1,6 +1,5 @@
 import { URLS } from "../constants";
 import { API_SERVICE } from "./api";
-import { data as mockData } from "./mock";
 import { COLORS, IKeyword, IKeywordsParsed } from "../interfaces";
 
 interface IUsedFieldsKeywordNetwork {
@@ -28,11 +27,8 @@ const COLORS_LIST = [
   COLORS.YELOW,
 ];
 
-export const fetchKeywordsNetwork = (): IKeywordsParsed => {
-  const data = API_SERVICE.post(URLS.KEYWORDS);
-  console.log("data", data);
-
-  const convertedData = mockData.data.map(
+const convertedData = (networkData: IKeywordNetwork[]) => {
+  const convertedData = networkData.map(
     (item: IKeywordNetwork, index: number): IKeyword => ({
       id: `${item.id}`,
       keyword: item.keyword,
@@ -50,7 +46,7 @@ export const fetchKeywordsNetwork = (): IKeywordsParsed => {
   );
 
   const savedData = convertedData.reduce(
-    (acc: IKeywordsParsed, item) => {
+    (acc: IKeywordsParsed, item: IKeyword) => {
       const newAcc = {
         keywordsInfo: {
           ...acc.keywordsInfo,
@@ -70,4 +66,13 @@ export const fetchKeywordsNetwork = (): IKeywordsParsed => {
     }
   );
   return savedData;
+};
+
+export const fetchKeywordsNetwork = () => {
+  const keywordsPromise = API_SERVICE.post(URLS.KEYWORDS);
+
+  const parsedData = keywordsPromise.then(({ data: { data } }) => {
+    return convertedData(data);
+  });
+  return parsedData;
 };

@@ -14,7 +14,6 @@ export const HomePageController = () => {
   const [currentKeywordId, setCurrentKeywordId] = useState("");
 
   const openModal = useCallback((id) => {
-    console.log("id", id);
     setSuggestionsCountOpen(true);
     setCurrentKeywordId(id);
   }, []);
